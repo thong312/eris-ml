@@ -21,7 +21,7 @@ pipeline {
         echo 'Setting up Python virtual environment...'
         sh '''
           python3 -m venv venv
-          source venv/bin/activate
+          . venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
         '''
@@ -32,7 +32,7 @@ pipeline {
       steps {
         echo 'Training ML model...'
         sh '''
-          source venv/bin/activate
+          . venv/bin/activate
           cd src
           python train_model.py
           cd ..
@@ -44,7 +44,7 @@ pipeline {
       steps {
         echo 'Testing model training and prediction...'
         sh '''
-          source venv/bin/activate
+          . venv/bin/activate
           pytest tests/test_model.py -v --tb=short
         '''
       }
@@ -54,7 +54,7 @@ pipeline {
       steps {
         echo 'Testing FastAPI application...'
         sh '''
-          source venv/bin/activate
+          . venv/bin/activate
           pytest tests/test_api.py -v --tb=short
         '''
       }
