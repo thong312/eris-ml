@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: undertanker86/iris-ml-api
+  DOCKER_IMAGE: thong312/iris-ml-api
   PYTHON_VERSION: '3.13'
 
 jobs:
