@@ -55,7 +55,7 @@ pipeline {
         echo 'Testing FastAPI application...'
         sh '''
           . venv/bin/activate
-          pytest tests/test_api.py -v --tb=short
+          pytest tests/test_app.py -v --tb=short
         '''
       }
     }
