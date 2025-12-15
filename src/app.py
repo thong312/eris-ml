@@ -33,6 +33,18 @@ def load_model():
 async def startup_event():
     load_model()
 
+@app.get("/")
+async def root():
+    return {
+        "message": "Iris Classification API",
+        "status": "running",
+        "endpoints": {
+            "health": "/health",
+            "predict": "/predict",
+            "docs": "/docs"
+        }
+    }
+
 @app.get("/health")
 async def health():
     return {"status": "healthy", "model_loaded": model is not None}
