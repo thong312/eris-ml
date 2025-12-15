@@ -30,7 +30,7 @@ def train_and_save_model():
     with open("models/iris_model.pkl","wb") as f:
         pickle.dump(model,f)
     print("Model saved to models/iris_model.pkl")
-    return accuracy_score
+    return accuracy
 
 if __name__ == "__main__":
     train_and_save_model()
